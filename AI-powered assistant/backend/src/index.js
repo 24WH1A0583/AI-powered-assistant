@@ -52,8 +52,13 @@ app.get('/health', (req, res) => {
  * Start server
  * First connect to DB, then start listening
  */
-connectDB().then(() => {
+/*connectDB().then(() => {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
+});*/
+connectDB().catch((err) => {
+  console.error("Database connection failed:", err);
 });
+
+export default app;
